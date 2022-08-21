@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1661089135 source:c:\users\Àðò¸ì\desktop\Ñ++\allocators\allocators\main.cpp
+	<iostream>
+	"LinearAllocator.h"
+
+1661088785 c:\users\Àðò¸ì\desktop\Ñ++\allocators\allocators\myallocators.h
+	<iostream>
+
+1661088766 source:c:\users\Àðò¸ì\desktop\Ñ++\allocators\allocators\myallocators.cpp
+	<iostream>
+	"MyAllocators.h"
+
+1661089135 source:c:\users\Àðò¸ì\desktop\Ñ++\allocators\allocators\linearallocator.cpp
+	<iostream>
+	"LinearAllocator.h"
+
+1661088785 c:\users\Àðò¸ì\desktop\Ñ++\allocators\allocators\linearallocator.h
+	<iostream>
+
