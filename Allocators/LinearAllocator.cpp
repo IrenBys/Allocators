@@ -1,8 +1,10 @@
 #include <iostream>
 #include "LinearAllocator.h"
+#include <assert.h>
 
 
 using namespace std;
+
 
 LinearAllocator::LinearAllocator(size_t count_bytes){
     m_allBytes = count_bytes;
@@ -24,13 +26,9 @@ LinearAllocator::~LinearAllocator() {
 }
 
 void* LinearAllocator::allocate(size_t count_bytes){
-    void* currentUsedPtr = m_start_ptr;
+    assert(count_bytes + m_usedBytes <= m_allBytes && "Requested memory for allocation is more than possible");
 
-    if(count_bytes + m_usedBytes > m_allBytes)
-    {
-        cout << "Requested memory for allocation is more than possible" << endl;
-        return nullptr;
-    }
+    void* currentUsedPtr = m_start_ptr;
     m_usedBytes += count_bytes;
     void* nextUsedPtr = currentUsedPtr + m_usedBytes;
 
@@ -39,7 +37,6 @@ void* LinearAllocator::allocate(size_t count_bytes){
     cout << "Return address to used bytes pointer " << nextUsedPtr << endl;
 
     return (void*) nextUsedPtr;
-
 }
 
 void LinearAllocator::deallocate_all(){

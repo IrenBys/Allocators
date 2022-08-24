@@ -34,6 +34,8 @@
 		</Compiler>
 		<Unit filename="LinearAllocator.cpp" />
 		<Unit filename="LinearAllocator.h" />
+		<Unit filename="PoolAllocator.cpp" />
+		<Unit filename="PoolAllocator.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

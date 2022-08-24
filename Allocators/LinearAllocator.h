@@ -15,5 +15,4 @@ public:
     ~LinearAllocator();
     void* allocate(size_t count_bytes);
     void deallocate_all();
-
 };
