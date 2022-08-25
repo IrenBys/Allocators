@@ -11,12 +11,14 @@
 #define PA_MEMORY_CHUNK 2
 
 
+
 using namespace std;
 
 
 int main()
 {
     void* i;
+    void* j;
     cout << "**************************************" <<endl;
     cout << "*          Linear Allocator          *" <<endl;
     cout << "**************************************" <<endl;
@@ -43,8 +45,12 @@ int main()
     cout << endl;
     poll_allocator.allocate();
     cout << endl;
+    cout << "Enter address for memory deallocation:" << endl;
     cin >> i;
     poll_allocator.deallocate(i);
+    cout << "Enter address for memory deallocation:" << endl;
+    cin >> j;
+    poll_allocator.deallocate(j);
 
     return 0;
 }

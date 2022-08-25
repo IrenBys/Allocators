@@ -22,7 +22,6 @@ LinearAllocator::LinearAllocator(size_t count_bytes){
 LinearAllocator::~LinearAllocator() {
     free(m_start_ptr);
     m_start_ptr = nullptr;
-    cout << "Linear Allocator destructor" << endl;
 }
 
 void* LinearAllocator::allocate(size_t count_bytes){

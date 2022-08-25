@@ -29,13 +29,12 @@ PoolAllocator::PoolAllocator(size_t count_bytes, size_t object_size){
     {
         m_usedChunkArr[i] = m_start_ptr + m_chunkBytes * i;
     }
-    cout << "Pool Allocator constructor:" << endl;
+    cout << "Pool Allocator constructor: " << endl;
     cout << "Pool Allocator size: " << m_allBytes << " bytes" << endl;
     cout << "Pool Allocator chunk size: " << m_chunkBytes << " bytes" << endl;
-    cout << "Pool Allocator addresses: " << endl;
     for(int i = 0; i < m_arrSize; i++)
     {
-       cout  << m_usedChunkArr[i] << endl;
+       cout << "Chunk address: " << m_usedChunkArr[i] << endl;
     }
 };
 
@@ -43,10 +42,6 @@ PoolAllocator::~PoolAllocator() {
     free(m_start_ptr);
     m_start_ptr = nullptr;
     m_end_ptr = nullptr;
-    cout << "Pool Allocator destructor:" << endl;
-    cout << "Start Allocator address: " << m_start_ptr << endl;
-    cout << "End Allocator address: " << m_end_ptr << endl;
-
 }
 
 void* PoolAllocator::allocate(){
@@ -57,13 +52,11 @@ void* PoolAllocator::allocate(){
     m_usedChunkArr[m_arrSize - 1] = nextUsedPtr;
     m_arrSize--;
 
-    cout << "Current address to used bytes pointer " << currentUsedPtr << endl;
-    cout << "Return address to used bytes pointer " << nextUsedPtr << endl;
-    cout << "Chunk number: " << m_arrSize << endl;
+    cout << "After allocation" << endl;
 
     for(int i = 0; i < m_arrSize; i++)
     {
-        cout << m_usedChunkArr[i] << endl;
+        cout << "Chunk address: " << m_usedChunkArr[i] << endl;
     }
 
     return (void*) nextUsedPtr;
@@ -72,25 +65,22 @@ void* PoolAllocator::allocate(){
 
 void PoolAllocator::deallocate(void* pointer){
 
-    //assert(m_start_ptr > i > m_end_ptr && "Address out of Allocator memory!");
-    //assert(std::find(m_usedChunkArr, m_end_ptr, pointer) == m_end_ptr && "Address out of Allocator memory!")
-
     for(int i = 0; i < m_arrSize; i++)
     {
         if(pointer != m_usedChunkArr[i])
         {
             cout << "Address out of Allocator memory!"  << endl;
-        } else
-        {
-            m_usedChunkArr[i] == 0x000000;
         }
     }
     m_arrSize++;
+
+    cout << "After deallocation" << endl;
+
     for(int i = 0; i < m_arrSize; i++)
     {
-        cout << m_usedChunkArr[i] << endl;
+        cout << "Chunk address: " << m_usedChunkArr[i] << endl;
     }
-    cout << "Chunk number: " << m_arrSize << endl;
+
 
 }
 
