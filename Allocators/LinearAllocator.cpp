@@ -6,26 +6,32 @@
 using namespace std;
 
 
-LinearAllocator::LinearAllocator(size_t count_bytes){
-    m_allBytes = count_bytes;
-    m_usedBytes = 0;
-
-    if (m_start_ptr != nullptr) {
-        free(m_start_ptr);
-    }
-    m_start_ptr = malloc(m_allBytes);
-
-    cout << "Linear Allocator size: " << m_allBytes << " bytes" << endl;
-    cout << "Start Allocator address: " << m_start_ptr << endl;
-};
+LinearAllocator::LinearAllocator(size_t count_bytes)
+    : m_allBytes(count_bytes), m_usedBytes(0){}
 
 LinearAllocator::~LinearAllocator() {
     free(m_start_ptr);
     m_start_ptr = nullptr;
 }
 
+void LinearAllocator:: init(){
+    if (m_start_ptr != nullptr)
+        {
+        free(m_start_ptr);
+        }
+    m_start_ptr = malloc(m_allBytes);
+
+    cout << "Linear Allocator size: " << m_allBytes << " bytes" << endl;
+    cout << "Start Allocator address: " << m_start_ptr << endl;
+}
+
 void* LinearAllocator::allocate(size_t count_bytes){
-    assert(count_bytes + m_usedBytes <= m_allBytes && "Requested memory for allocation is more than possible");
+
+    if((count_bytes + m_usedBytes) >= m_allBytes)
+    {
+        cout << "Requested memory for allocation is more than possible" << endl;
+        return nullptr;
+    }
 
     void* currentUsedPtr = m_start_ptr;
     m_usedBytes += count_bytes;

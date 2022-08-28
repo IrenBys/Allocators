@@ -13,6 +13,7 @@ private:
 public:
     LinearAllocator(size_t count_bytes);
     ~LinearAllocator();
+    void init();
     void* allocate(size_t count_bytes);
     void deallocate_all();
 };

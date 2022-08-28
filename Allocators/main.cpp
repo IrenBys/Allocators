@@ -4,7 +4,7 @@
 
 // Macros for Linear Allocator
 #define LINEAR_ALLOCATOR_SIZE 10
-#define LA_ALLOCATED_MEMORY_ 10
+#define LA_ALLOCATED_MEMORY_ 12
 
 // Macros for Pool Allocator
 #define POOL_ALLOCATOR_SIZE 10
@@ -25,6 +25,8 @@ int main()
     cout << endl;
     LinearAllocator linear_allocator(LINEAR_ALLOCATOR_SIZE);
     cout << endl;
+    linear_allocator.init();
+    cout << endl;
     linear_allocator.allocate(LA_ALLOCATED_MEMORY_);
     cout << endl;
     linear_allocator.deallocate_all();
@@ -36,6 +38,8 @@ int main()
     cout << "*************************************" <<endl;
     cout << endl;
     PoolAllocator poll_allocator(POOL_ALLOCATOR_SIZE, PA_MEMORY_CHUNK);
+    cout << endl;
+    poll_allocator.init();
     cout << endl;
     poll_allocator.allocate();
     cout << endl;

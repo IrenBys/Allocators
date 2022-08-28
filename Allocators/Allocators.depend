@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1661089135 source:c:\users\Àðò¸ì\desktop\Ñ++\allocators\allocators\main.cpp
+1661695933 source:c:\users\Àðò¸ì\desktop\Ñ++\allocators\allocators\main.cpp
 	<iostream>
 	"LinearAllocator.h"
+	"PoolAllocator.h"
 
 1661088785 c:\users\Àðò¸ì\desktop\Ñ++\allocators\allocators\myallocators.h
 	<iostream>
@@ -10,11 +11,12 @@
 	<iostream>
 	"MyAllocators.h"
 
-1661089135 source:c:\users\Àðò¸ì\desktop\Ñ++\allocators\allocators\linearallocator.cpp
+1661695674 source:c:\users\Àðò¸ì\desktop\Ñ++\allocators\allocators\linearallocator.cpp
 	<iostream>
 	"LinearAllocator.h"
+	<assert.h>
 
-1661088785 c:\users\Àðò¸ì\desktop\Ñ++\allocators\allocators\linearallocator.h
+1661695289 c:\users\Àðò¸ì\desktop\Ñ++\allocators\allocators\linearallocator.h
 	<iostream>
 
 1661419014 source:d:\tools\my_prj\allocators\allocators\allocators\linearallocator.cpp
@@ -35,6 +37,16 @@
 	<array>
 
 1661356315 source:d:\tools\my_prj\allocators\allocators\allocators\poolallocator.cpp
+	<iostream>
+	"PoolAllocator.h"
+	<assert.h>
+	<algorithm>
+
+1661695732 c:\users\Àðò¸ì\desktop\Ñ++\allocators\allocators\poolallocator.h
+	<iostream>
+	<array>
+
+1661696403 source:c:\users\Àðò¸ì\desktop\Ñ++\allocators\allocators\poolallocator.cpp
 	<iostream>
 	"PoolAllocator.h"
 	<assert.h>

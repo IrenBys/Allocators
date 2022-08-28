@@ -14,6 +14,7 @@ private:
 public:
     PoolAllocator(size_t count_bytes, size_t object_size);
     ~PoolAllocator();
+    void init();
     void* allocate();
     void deallocate(void* pointer);
 };
