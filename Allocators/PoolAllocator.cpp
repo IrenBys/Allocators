@@ -46,7 +46,12 @@ void PoolAllocator::init(){
 }
 
 void* PoolAllocator::allocate(){
-    assert(m_arrSize != 0 && "The pool allocator is full");
+
+    if(m_arrSize == 0)
+    {
+        cout << "The pool allocator is full" << endl;
+        return nullptr;
+    }
 
     void* currentUsedPtr = m_start_ptr + m_chunkBytes * m_arrSize;
     void* nextUsedPtr = currentUsedPtr - m_chunkBytes;
@@ -69,19 +74,17 @@ void PoolAllocator::deallocate(void* pointer){
 
     for(int i = 0; i < m_arrSize; i++)
     {
-        if(pointer != m_usedChunkArr[i])
+        arr_count = (pointer != m_usedChunkArr[i]) ? 0 : 1;
+        if(arr_count == 0)
         {
             cout << "Address out of Allocator memory!"  << endl;
             break;
         }
-
-        arr_count = 1;
     }
 
     m_arrSize += arr_count;
 
-    cout << "After deallocation" << endl;
-
+    cout << "After deallocation: " << endl;
     for(int i = 0; i < m_arrSize; i++)
     {
         cout << "Chunk address: " << m_usedChunkArr[i] << endl;
